@@ -1,6 +1,7 @@
-target
-README.md
+.editorconfig
+.git/
+.gitignore
 Dockerfile
 LICENSE
-.editorconfig
-.gitignore
+README.md
+target/

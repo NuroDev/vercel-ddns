@@ -1,14 +1,15 @@
 [package]
-authors = ["Rodrigo Sanabria <rodrigosanabria22@gmail.com>"]
+name = "vercel-ddns"
+version = "0.1.1"
+authors = [
+	"Rodrigo Sanabria <rodrigosanabria22@gmail.com>",
+	"Ben Dixon <me@nuro.dev>"
+]
 edition = "2018"
 keywords = ["dynamic", "ddns", "dns", "vercel"]
 license = "MIT"
-name = "vercel-ddns"
 readme = "README.md"
-repository = "https://github.com/krosf/vercel-ddns"
-version = "0.1.0"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+repository = "https://github.com/nurodev/vercel-ddns"
 
 [dependencies]
 eyre = "0.6.0"
