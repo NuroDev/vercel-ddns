@@ -1,12 +1,15 @@
-# vercel-ddns
+# ☁️ Vercel DDNS
 
 vercel-ddns is a simple command line tool for creating a DNS record for Vercel's Managed DNS service.
 
-## Usage
+[![Version](https://img.shields.io/github/v/release/nurodev/vercel-ddns?label=%20&style=for-the-badge)](https://github.com/NuroDev/vercel-ddns/releases)
+[![Build](https://img.shields.io/github/workflow/status/nurodev/vercel-ddns/Build?label=%20&logo=github&logoColor=white&style=for-the-badge)](https://github.com/NuroDev/vercel-ddns/actions?query=workflow%3Abuild)
 
-### cli
+## 🦄 Usage
 
-```sh
+### CLI
+
+```zsh
 vercel-ddns 0.1.0
 
 
@@ -26,9 +29,9 @@ OPTIONS:
         --ttl <ttl>                 [env: VDDNS_TTL=]  [default: 3600]
 ```
 
-### docker
+### 🐳 Docker CLI
 
-```sh
+```zsh
 docker run -d \
     -e VERCEL_TOKEN=<YOUR_TOKEN> \
     -e VDDNS_DOMAIN=<example.com> \
@@ -36,27 +39,30 @@ docker run -d \
     -e VDDNS_TTL=3600 `#optional` \
     -e VDDNS_IP_TYPE=ipv4 `#optional` \
     -e CRON_SCHEDULE="*/15 * * * *" `#optional` \
-    krosf/vercel-ddns:cronjob
+    ghcr.io/nurodev/vercel-ddns:cron
 ```
 
-### docker-compose
+### 🐳 Docker Compose
 
 ```yml
 version: "3.7"
+
 services:
-    ddns:
-        image: krosf/vercel-ddns:cronjob
-        restart: unless-stopped
-        environment:
-            - VERCEL_TOKEN=<YOUR_TOKEN>
-            - VDDNS_DOMAIN=<example.com>
-            - VDDNS_SUBDOMAIN=<sample>
-            - VDDNS_TTL=3600 #optional
-            - VDDNS_IP_TYPE=ipv4 #optional
-            - CRON_SCHEDULE="*/15 * * * *" #optional
+  ddns:
+    image: ghcr.io/nurodev/vercel-ddns:cron
+    container_name: vercel-ddns
+    restart: unless-stopped
+    environment:
+      - VERCEL_TOKEN=<YOUR_TOKEN>
+      - VDDNS_DOMAIN=<example.com>
+      - VDDNS_SUBDOMAIN=<sample>
+      - VDDNS_TTL=3600 #optional
+      - VDDNS_IP_TYPE=ipv4 #optional
+      - CRON_SCHEDULE="*/15 * * * *" #optional
 ```
 
-## Related
+## ❤️ Credits
 
-Check out [lukehsiao/netlify-ddns-rs](https://github.com/lukehsiao/netlify-ddns-rs) for a similar
-client for Netlify.
+- [KROSF/vercel-ddns](https://github.com/KROSF/vercel-ddns) for the original project
+- [lukehsiao/netlify-ddns-rs](https://github.com/lukehsiao/netlify-ddns-rs) for a similar
+  client for Netlify.
